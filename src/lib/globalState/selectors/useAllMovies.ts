@@ -17,8 +17,8 @@ export const useAllMovies = (): IRatedMovie[] => {
 
     ratedMovies.push({
       id: movie.id,
-     author: movie.author,
       title: movie.title,
+     author: movie.author,
       year: movie.year,
       votes: state.votes[i]
     })
