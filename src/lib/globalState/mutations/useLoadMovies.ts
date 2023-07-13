@@ -11,7 +11,7 @@ export const useLoadMovies = () => {
   const { dispatch } = useGlobalState();
   useEffect(() => {
     axios
-      .get("/movies")
+      .get("/api/movies")
       .then((res: AxiosResponse<MovieList>) =>
         dispatch(actions.loadMovies(res.data)),
       )

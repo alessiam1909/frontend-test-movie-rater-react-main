@@ -31,7 +31,8 @@ export const Vote: React.FC = () => {
     //eseguo la funzione per votare solo se c'è un film selezionato
     if(selectedMovie){
     vote();
-    goTo(State.dashboard);
+    goTo(State.topTen);
+
   }
 }
 
