@@ -5,14 +5,25 @@ interface IRatedMovie extends Movie {
   votes: number;
 }
 
+
+// prima Task , creo una funzione che restituisca un array di film, contenenti anche la proprietà votes
 export const useAllMovies = (): IRatedMovie[] => {
   const { state } = useGlobalState();
 
-  // TODO: associate movies with votes
-  // state contains movies and votes in separate properties,
-  // join them and return an IRatedMovie array
+  const ratedMovies: IRatedMovie[] = []
 
-  const movies = state.movies as IRatedMovie[]; // not valid: replace
+  for(let i = 0; i < state.movies.length; i++){
+    const movie = state.movies[i];
 
-  return movies;
+    ratedMovies.push({
+      id: movie.id,
+     author: movie.author,
+      title: movie.title,
+      year: movie.year,
+      votes: state.votes[i]
+    })
+  }
+  
+  return ratedMovies
+
 };
