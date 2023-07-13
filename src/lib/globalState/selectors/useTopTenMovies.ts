@@ -5,8 +5,13 @@ import { useAllMovies } from "./useAllMovies";
  */
 export const useTopTenMovies = () => {
   const movies = useAllMovies();
+  const topMovies = movies
+    //filtra i film che non hanno voti
+    .filter((movie) => movie.votes !== 0)
+    //ordina i film secondo i loro voti in ordine decrescente
+    .sort((movieA, movieB) => movieB.votes - movieA.votes)
+    //ritorna solo i primi 10 film
+    .slice(0, 10);
 
-  // TODO: reorder only best 10 movies by vote, desc (movie with more votes first)
-
-  return movies;
+  return topMovies;
 };
