@@ -30,7 +30,7 @@ export const useTopTenMovies = () => {
     if(vote == 0){
       let votes = 0;
       //Se vote è uguale a 0, viene eseguito un ciclo while che continua fino a quando top10 ha dieci film.
-      while(top10.length <= 10){
+      while(top10.length < 10){
         if(!top10.includes(movies[votes])){
           top10.push(movies[votes]);
         }

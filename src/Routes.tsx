@@ -5,6 +5,7 @@ import { useGlobalState } from "./lib/globalState/GlobalStateContext";
 import { useLoadMovies } from "./lib/globalState/mutations/useLoadMovies";
 import { State } from "./lib/globalState/types";
 import { TopTen } from "./components/dashboard/TopTen";
+import { ServerError } from "./components/dashboard/ServerError";
 
 export const Routes: React.FC = () => {
   const { state } = useGlobalState();
@@ -12,12 +13,14 @@ export const Routes: React.FC = () => {
   // Load movies at bootstrap
   useLoadMovies();
 
-  // TODO: Task 7 - Add an "ErrorPage" case for api error handling
+  // added error page
   switch (state.current) {
     case State.vote:
       return <Vote />;
     case State.topTen:
-      return <TopTen />
+      return <TopTen />;
+    case State.error:
+      return <ServerError />;
     case State.dashboard:
     default:
       return <Dashboard />;
