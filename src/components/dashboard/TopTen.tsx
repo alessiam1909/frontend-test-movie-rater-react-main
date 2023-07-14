@@ -13,21 +13,32 @@ export const TopTen: React.FC = () => {
   return (
     <Box>
       <Title>Top ten</Title>
-      <div style={{maskImage:"linear-gradient(black 30%, transparent 100%)", WebkitMaskImage:"linear-gradient(black 30%, transparent 100%)" , padding:"10px"}}>
-      <OrderedList >
-        {movies.map((movie) => (
-          <ListItem key={movie.id}>
-            <Box style={{display:"flex", alignItems:"center"}}>
-              <Progress value={movie.votes} width="10%" colorScheme='red' size='sm' /> {movie.title} (
-              {movie.votes} voti)
-            </Box>
-          </ListItem>
-        ))}
-      </OrderedList>
+      <div
+        style={{
+          maskImage: "linear-gradient(black 30%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(black 30%, transparent 100%)",
+          padding: "10px",
+        }}
+      >
+        <OrderedList>
+          {movies.map((movie) => (
+            <ListItem key={movie.id}>
+              <Box style={{ display: "flex", alignItems: "center" }}>
+                <Progress
+                  value={movie.votes * 10}
+                  width="10%"
+                  colorScheme="red"
+                  size="sm"
+                />
+                {movie.title} ({movie.votes} voti)
+              </Box>
+            </ListItem>
+          ))}
+        </OrderedList>
       </div>
-         <Button onClick={() => goTo(State.vote)} mt={5}>
-          Vota
-        </Button>
+      <Button onClick={() => goTo(State.vote)} mt={5}>
+        Vota
+      </Button>
     </Box>
   );
 };

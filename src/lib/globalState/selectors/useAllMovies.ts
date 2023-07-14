@@ -1,7 +1,7 @@
 import { Movie } from "../../../api/types";
 import { useGlobalState } from "../GlobalStateContext";
 
-interface IRatedMovie extends Movie {
+export interface IRatedMovie extends Movie {
   votes: number;
 }
 
@@ -20,7 +20,7 @@ export const useAllMovies = (): IRatedMovie[] => {
       title: movie.title,
      author: movie.author,
       year: movie.year,
-      votes: state.votes[i]
+      votes: state.votes[i + 1] ?? 0
     })
   }
   
