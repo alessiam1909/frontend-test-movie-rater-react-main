@@ -11,7 +11,7 @@ export const Layout: React.FC<IProps> = ({ children }) => (
   <Center>
     <Stack>
       <Image src={img} w={100} my={15} />
-      <Container borderRadius={10} m={10} p={10} background="#fff">
+      <Container borderRadius={10} m={0} p={10} background="#fff">
         <Stack w="90%" spacing={7}>
           <Header />
           <Box w="450px">{children}</Box>
